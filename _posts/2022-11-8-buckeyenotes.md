@@ -67,11 +67,11 @@ And since I have the benefit of writing this after the files for all challenges 
 ![picture-db](/assets/buckeyenotes/buckeyenotes-db.png) 
 
 
- Wait, so is the datbase going to log us in as **ALL** users at the same time? Not quite. At the time of doing the challenge we obviosuly do not know how the backend works, but it is very likely that it simply takes the **first row in the returned query**. In our case, the first user in *users* table is *rene* and so we get: 
+ Wait, so is the database going to log us in as **ALL** users at the same time? Not quite. At the time of doing the challenge we obviosuly do not know how the backend works, but it is very likely that it simply takes the **first row in the returned query**. In our case, the first user in *users* table is *rene* and so we get: 
 
 > Logged in as rene . Nothing posted yet :(
 
-The [reason](https://portswigger.net/support/using-sql-injection-to-bypass-authentication) this payload sometimes grants admin privileges is becasue *admin* user is often the first user in a database.
+The [reason](https://portswigger.net/support/using-sql-injection-to-bypass-authentication) this payload sometimes grants admin privileges is because *admin* user is often the first user in a database.
 
 
 Now, what would happen if we reversed the payload:
@@ -119,7 +119,7 @@ as payload which results in the following query:
 SELECT username FROM users WHERE username = 'brutusB3stNut9999' --'AND password='x';
 ```
 
-And sure enugh, we get the flag:
+And sure enough, we get the flag:
 
 ![picture-6](/assets/buckeyenotes/buckeyenotes-8.png)
 
@@ -134,7 +134,7 @@ The second option is to extend the query and ask for the username *brutusB3stNut
 SELECT username FROM users WHERE username ='x' AND password='test' OR 1<2 AND username LIKE 'brutusB3stNut9999' --';
 ```
 
-The *LIKE* keyword is used for pattern match comparison and allows us to bypass equal signs filtering. Normally, it could be used like this: ```AND username LIKE 'brutus%' -- ``` and it would return all usernames that matched the pattern, so for example: *brutusB3stNut123*, *brutusW0rstNut9999*,  *brutusB3stNut9999*. In this case, we used it match exactly the username we are looking for.
+The *LIKE* keyword is used for pattern match comparison and allows us to bypass equal signs filtering. Normally, it could be used like this: ```AND username LIKE 'brutus%' -- ``` and it would return all usernames that matched the pattern, so for example: *brutusB3stNut123*, *brutusW0rstNut9999*,  *brutusB3stNut9999*. In this case, we used it to match exactly the username we are looking for.
 
 
 As you can see, the first pair of requirements  ```username ='x' AND password='test'``` is going to fail. The second pair  ```1<2 AND username LIKE 'brutusB3stNut9999'``` , however, is true and so the database logs us in as *brutusB3stNut9999* and we get the flag, same as earlier.
