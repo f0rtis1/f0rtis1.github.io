@@ -6,5 +6,5 @@ order: 4
 
 # f0rtis1
 
-Hi, this pages features writeups for some CTF challenges I solved and posts about cool things I do at the moment. 
+Hi, this pages features writeups for some CTF challenges I solved and posts about cool things I do at the moment!
 
