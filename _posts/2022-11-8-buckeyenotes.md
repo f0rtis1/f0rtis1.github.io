@@ -1,8 +1,8 @@
 ---
-title: Buckeye CTF 2022 - buckeyenotes Web Challenge 
+title: Buckeye CTF 2022 - buckeyenotes - Writeup 
 date: 2022-11-08 -500
 categories: [ctf]
-tags: [web, writeup]
+tags: [writeup, web, sqli]
 ---
 
 ![challenge-description](/assets/buckeyenotes/buckeyenotes-1.png)
