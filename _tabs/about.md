@@ -15,5 +15,4 @@ This page will feature everything **cybersecurity** related ... but as a rule of
 * cool capybara pictures 
 
 
- ![challenge-description](/_site/assets/capy/capy.jpg)
 
