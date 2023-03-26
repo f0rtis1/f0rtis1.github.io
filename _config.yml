@@ -21,7 +21,7 @@ timezone: Europe/Warsaw
 
 title: f0rtis1                         # the main title
 
-tagline: Cybersecurity enthusiast, CTF player   # it will display as the sub-title
+tagline: Cybersecurity enthusiast, CTF player   #  it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   
